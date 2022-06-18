@@ -1,23 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import { Container } from '@mui/system';
+import Navbar from './componerts/Navbar';
+import { Box } from '@mui/material';
+import ListChat from './componerts/ListChat';
+import ChatInput from './moleculs/ChatInput';
+import Message from './moleculs/Message';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="App">
+      <Navbar/>
+      <Box display={'flex'} height={'100vh'} borderRight='1px solid white'>
+          <Box bgcolor={'red'} width='15%'>
+            <ListChat/>
+          </Box>
+          <Box  flexGrow={1} bgcolor='#0a1014'>
+            <Message textMessage={'Halo Apakabar ?'}/>
+            <Message isMe textMessage={'Baik,Kamu gimana?'}/>
+            <ChatInput/>
+          </Box>
+      </Box>
     </div>
   );
 }
