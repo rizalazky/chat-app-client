@@ -1,0 +1,29 @@
+.login-wrapper{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1976d2;
+}
+
+.login-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.login-form input{
+    margin: 5px;
+    padding: 10px;
+    color: black !important;
+    border-radius: 5px;
+}
+
+.login-form input[type=submit]{
+    background-color: #1976d2;
+
+}

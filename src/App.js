@@ -6,9 +6,27 @@ import { Box } from '@mui/material';
 import ListChat from './componerts/ListChat';
 import ChatInput from './moleculs/ChatInput';
 import Message from './moleculs/Message';
-
+import {
+  useParams,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
+import { useEffect } from 'react';
 
 function App() {
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    
+    let dataUser = JSON.parse(localStorage.getItem('user')) || false;
+
+    if(!dataUser){
+      navigate('/login')
+    }
+    
+  }, [])
+  
   return (
     <div class="App">
       <Navbar/>
