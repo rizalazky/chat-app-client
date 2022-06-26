@@ -3,7 +3,8 @@
 }
 .App {
   text-align: center;
-  height: 99vh;
+  height: 110vh;
+  background-color: #0a1014;
 }
 
 .App-logo {
