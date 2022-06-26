@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 import './Login.css';
+import { userApi } from './api/index'
 
 function Login() {
     const [username,setUsername] = useState();
     const [password,setPassword] = useState();
     
-    const onSubmit =(e)=>{
+    const onSubmit =async (e)=>{
         e.preventDefault();
         const data ={
             username,
             password
         }
-
-        localStorage.setItem('user', JSON.stringify(data));
+        let getData = userApi.addUser(username,password).then(response => {return response.json()}).then(res =>console.log(res));
+        // localStorage.setItem('user', JSON.stringify(data));
     }
 
     return (

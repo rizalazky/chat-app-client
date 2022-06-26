@@ -12,9 +12,11 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useEffect } from 'react';
+// import socketClient from 'socket.io-client'
 
+const SERVER ="http://127.0.0.1:5000";
 function App() {
-
+  // var socket = socketClient;
   const navigate = useNavigate();
 
   useEffect(() => {
