@@ -1,8 +1,8 @@
-const URL = 'http://localhost:8000/api/user';
+const URL = 'http://localhost:5000/api/user';
 
 const userApi = {
-    addUser : (username,password)=>{
-        return fetch(URL,{
+    login : (username,password)=>{
+        return fetch(URL+'/login',{
             method : 'POST',
             mode : 'cors',
             headers :{

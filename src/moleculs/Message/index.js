@@ -6,6 +6,7 @@ function Message({isMe=false,textMessage}) {
  let bg ='#2a3942';
  let justifyContent ='flex-start'
 
+ console.log("isMe"+isMe)
  if(isMe){
     bg='#1976d2'
     justifyContent='flex-end'
