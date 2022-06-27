@@ -5,17 +5,25 @@ import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [username,setUsername] = useState();
+    const [name,setName] = useState();
     const [password,setPassword] = useState();
     const [alertMessage,setAlertMessage] = useState("");
     const navigate = useNavigate();
+    const [isRegister,setIsRegister] = useState(false);
     
     const onSubmit =async (e)=>{
         e.preventDefault();
         const data ={
             username,
-            password
+            password,
+            name
         }
-        let login = await (await userApi.login(username,password)).json();
+        let login;
+        if(isRegister){
+            login = await (await userApi.register(data)).json()
+        }
+        login= await (await userApi.login(username,password)).json();
+        
         console.log(login)
         if(login.status == "NOT OKE"){
             setAlertMessage(login.message)
@@ -48,8 +56,17 @@ function Login() {
                 }
                 <input type='text' placeholder='username' onInput={(e)=>setUsername(e.target.value)}/>
                 <input type='password' placeholder='password' onInput={(e)=>setPassword(e.target.value)}/>
-                <input type='submit' value='login'/>
+                {
+                    isRegister && (
+                        <>
+                            <input type='text' placeholder='name' onInput={(e)=>setName(e.target.value)}/>
+                        </>
+
+                    )
+                }
+                <input type='submit' value={isRegister ? 'Sign Up' : 'Sign In'}/>
             </form>
+            <span style={{textAlign:'right',width: '330px',textDecoration: 'underline',marginTop:'5px'}} onClick={()=>setIsRegister(!isRegister)}>{!isRegister ? 'Sign Up' : 'Sign In'}</span>
         </div>
     )
 }
