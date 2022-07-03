@@ -26,6 +26,8 @@ function App() {
 
   socket.on('chat message',(message)=>{
     getDataMessage()
+    getDataChatRoom(dataUser.username)
+    console.log("SOCKET ON CHAT MESSAGE",message)
   })
 
   const getDataMessage = async ()=>{
